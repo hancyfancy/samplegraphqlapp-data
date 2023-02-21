@@ -13,6 +13,7 @@ namespace SampleGraphqlApp.Data.Test.Repository
             _studentRepository = studentRepository;
         }
 
+        [Fact]
         public async Task AllTest()
         {
             IEnumerable<Student>? students = await _studentRepository.All();

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using SampleGraphqlApp.Data.Interface.Models;
 using SampleGraphqlApp.Data.Interface.Repositories;
+using SampleGraphqlApp.Data.Repositories;
 
 namespace SampleGraphqlApp.Data.Test.Repository
 {

@@ -63,7 +63,8 @@ namespace SampleGraphqlApp.Data.Repositories
                 HttpContent content = new StringContent(query);
                 var result = await client.PostAsync("/graphql", content);
                 string resultContent = await result.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<Student>(resultContent);
+                dynamic? resultContentObj = JsonConvert.DeserializeObject<dynamic>(resultContent);
+                return resultContentObj?.data.studentsBy;
             }
         }
 

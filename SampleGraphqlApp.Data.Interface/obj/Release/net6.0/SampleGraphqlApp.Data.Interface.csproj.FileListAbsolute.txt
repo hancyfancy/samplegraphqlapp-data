@@ -1,0 +1,12 @@
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Interface\bin\Release\net6.0\SampleGraphqlApp.Data.Interface.deps.json
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Interface\bin\Release\net6.0\SampleGraphqlApp.Data.Interface.dll
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Interface\bin\Release\net6.0\SampleGraphqlApp.Data.Interface.pdb
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Interface\obj\Release\net6.0\SampleGraphqlApp.Data.Interface.csproj.AssemblyReference.cache
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Interface\obj\Release\net6.0\SampleGraphqlApp.Data.Interface.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Interface\obj\Release\net6.0\SampleGraphqlApp.Data.Interface.AssemblyInfoInputs.cache
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Interface\obj\Release\net6.0\SampleGraphqlApp.Data.Interface.AssemblyInfo.cs
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Interface\obj\Release\net6.0\SampleGraphqlApp.Data.Interface.csproj.CoreCompileInputs.cache
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Interface\obj\Release\net6.0\SampleGraphqlApp.Data.Interface.dll
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Interface\obj\Release\net6.0\refint\SampleGraphqlApp.Data.Interface.dll
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Interface\obj\Release\net6.0\SampleGraphqlApp.Data.Interface.pdb
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Interface\obj\Release\net6.0\ref\SampleGraphqlApp.Data.Interface.dll

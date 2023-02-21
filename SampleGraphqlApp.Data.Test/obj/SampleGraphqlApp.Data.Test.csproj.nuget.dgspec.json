@@ -109,6 +109,10 @@
               "target": "Package",
               "version": "[17.1.0, )"
             },
+            "Xunit.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.7.0, )"
+            },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -117,7 +121,7 @@
             },
             "xunit": {
               "target": "Package",
-              "version": "[2.4.1, )"
+              "version": "[2.4.2, )"
             },
             "xunit.runner.visualstudio": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

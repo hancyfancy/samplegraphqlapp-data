@@ -5,6 +5,10 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleGraphqlApp.Data", "SampleGraphqlApp.Data\SampleGraphqlApp.Data.csproj", "{DCB4EC87-2F96-48EF-957F-FC4AC407108D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleGraphqlApp.Data.Interface", "SampleGraphqlApp.Data.Interface\SampleGraphqlApp.Data.Interface.csproj", "{9B521106-2BB6-4862-B64C-D70D1829CAA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleGraphqlApp.Data.Test", "SampleGraphqlApp.Data.Test\SampleGraphqlApp.Data.Test.csproj", "{E2EA832D-A5F3-4C2F-BC8E-58F347E567A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{DCB4EC87-2F96-48EF-957F-FC4AC407108D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCB4EC87-2F96-48EF-957F-FC4AC407108D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCB4EC87-2F96-48EF-957F-FC4AC407108D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B521106-2BB6-4862-B64C-D70D1829CAA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B521106-2BB6-4862-B64C-D70D1829CAA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B521106-2BB6-4862-B64C-D70D1829CAA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B521106-2BB6-4862-B64C-D70D1829CAA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2EA832D-A5F3-4C2F-BC8E-58F347E567A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2EA832D-A5F3-4C2F-BC8E-58F347E567A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2EA832D-A5F3-4C2F-BC8E-58F347E567A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2EA832D-A5F3-4C2F-BC8E-58F347E567A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -21,12 +21,16 @@ namespace SampleGraphqlApp.Data.Repositories
                             query Students {
                                 students {
                                     id
-                                    lastName
                                     firstName
+                                    lastName
+                                    email
                                     college {
+                                        id
                                         name
                                         location
+                                        rating
                                         books {
+                                        id
                                         name
                                         author
                                         }

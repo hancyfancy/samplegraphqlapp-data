@@ -9,6 +9,11 @@ C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin
 C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\SampleGraphqlApp.Data.Test.runtimeconfig.json
 C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\SampleGraphqlApp.Data.Test.dll
 C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\SampleGraphqlApp.Data.Test.pdb
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\GraphQL.Client.dll
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\GraphQL.Client.Abstractions.dll
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\GraphQL.Client.Abstractions.Websocket.dll
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\GraphQL.Client.Serializer.Newtonsoft.dll
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\GraphQL.Primitives.dll
 C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
@@ -45,6 +50,7 @@ C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin
 C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\NuGet.Frameworks.dll
 C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\System.Diagnostics.EventLog.dll
+C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\System.Reactive.dll
 C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\xunit.abstractions.dll
 C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\xunit.assert.dll
 C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\Xunit.DependencyInjection.dll
@@ -132,9 +138,3 @@ C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\obj
 C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\obj\Debug\net6.0\SampleGraphqlApp.Data.Test.pdb
 C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\obj\Debug\net6.0\SampleGraphqlApp.Data.Test.genruntimeconfig.cache
 C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\obj\Debug\net6.0\ref\SampleGraphqlApp.Data.Test.dll
-C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\GraphQL.Client.dll
-C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\GraphQL.Client.Abstractions.dll
-C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\GraphQL.Client.Abstractions.Websocket.dll
-C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\GraphQL.Client.Serializer.Newtonsoft.dll
-C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\GraphQL.Primitives.dll
-C:\Users\atalm\source\repos\SampleGraphqlApp.Data\SampleGraphqlApp.Data.Test\bin\Debug\net6.0\System.Reactive.dll

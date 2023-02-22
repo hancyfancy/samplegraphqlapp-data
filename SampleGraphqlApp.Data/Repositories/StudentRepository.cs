@@ -235,5 +235,52 @@ namespace SampleGraphqlApp.Data.Repositories
                 return JsonConvert.DeserializeObject<IEnumerable<Student>>(JsonConvert.SerializeObject(response.Data?.addStudents));
             }
         }
+
+        public async Task<Student?> Update(string id, ExistingStudent existingStudent)
+        {
+            using (var client = new GraphQLHttpClient("http://localhost:9000/graphql", new NewtonsoftJsonSerializer()))
+            {
+                var request = new GraphQLRequest
+                {
+                    Query = @"mutation UpdateStudent(
+                        $id: ID!
+                        $student: StudentParameters!
+                    ) 
+                    {
+                        updateStudent(
+                            id: $id
+                            student: $student
+                        ) 
+                        {
+                            id
+                            firstName
+                            lastName
+                            email
+                            college {
+                                id
+                                name
+                                location
+                                rating
+                                books {
+                                id
+                                name
+                                author
+                                }
+                            }
+                        }
+                    }",
+                    OperationName = "UpdateStudent",
+                    Variables = new
+                    {
+                        id = id,
+                        student = existingStudent
+                    }
+                };
+
+                dynamic response = await client.SendMutationAsync<ExpandoObject>(request);
+
+                return JsonConvert.DeserializeObject<Student>(JsonConvert.SerializeObject(response.Data?.updateStudent));
+            }
+        }
     }
 }

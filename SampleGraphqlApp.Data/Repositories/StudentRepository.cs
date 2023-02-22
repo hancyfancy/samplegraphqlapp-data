@@ -85,7 +85,7 @@ namespace SampleGraphqlApp.Data.Repositories
             }
         }
 
-        public async Task<IEnumerable<Student>?> ByProperties(ProspectiveStudent prospectiveStudent)
+        public async Task<IEnumerable<Student>?> ByProperties(ExistingStudent existingStudent)
         {
             using (var client = new GraphQLHttpClient("http://localhost:9000/graphql", new NewtonsoftJsonSerializer()))
             {
@@ -93,19 +93,10 @@ namespace SampleGraphqlApp.Data.Repositories
                 {
                     Query = @"
                             query StudentsBy(
-                                $email: String!
-                                $firstName: String!
-                                $lastName: String!
-                                $collegeId: ID!
+                                $search: StudentParameters
                             ) 
                             {
-                                studentsBy(search: 
-                                {
-                                    email: $email
-                                    firstName: $firstName
-                                    lastName: $lastName
-                                    collegeId: $collegeId
-                                }) 
+                                studentsBy(search: $search) 
                                 {
                                     id
                                     firstName
@@ -127,10 +118,7 @@ namespace SampleGraphqlApp.Data.Repositories
                     OperationName = "StudentsBy",
                     Variables = new
                     {
-                        email = prospectiveStudent.email,
-                        firstName = prospectiveStudent.firstName,
-                        lastName = prospectiveStudent.lastName,
-                        collegeId = prospectiveStudent.collegeId
+                        search = existingStudent
                     }
                 };
 
@@ -147,19 +135,10 @@ namespace SampleGraphqlApp.Data.Repositories
                 var request = new GraphQLRequest
                 {
                     Query = @"mutation AddStudent(
-                                $email: String!
-                                $firstName: String!
-                                $lastName: String!
-                                $collegeId: ID!
+                                $student: StudentMutationParameters!
                             ) 
                             {
-                                addStudent(student: 
-                                {
-                                    email: $email
-                                    firstName: $firstName
-                                    lastName: $lastName
-                                    collegeId: $collegeId
-                                }) 
+                                addStudent(student: $student) 
                                 {
                                     id
                                     firstName
@@ -181,10 +160,7 @@ namespace SampleGraphqlApp.Data.Repositories
                             OperationName = "AddStudent",
                             Variables = new
                             {
-                                email = prospectiveStudent.email,
-                                firstName = prospectiveStudent.firstName,
-                                lastName = prospectiveStudent.lastName,
-                                collegeId = prospectiveStudent.collegeId
+                                student = prospectiveStudent
                             }
                         };
 

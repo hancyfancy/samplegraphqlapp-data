@@ -9,7 +9,7 @@ namespace SampleGraphqlApp.Data.Interface.Repositories
 
         Task<Student?> ById(string id);
 
-        Task<IEnumerable<Student>?> ByProperties(ProspectiveStudent prospectiveStudent);
+        Task<IEnumerable<Student>?> ByProperties(ExistingStudent existingStudent);
 
         Task<Student?> Add(ProspectiveStudent prospectiveStudent);
 

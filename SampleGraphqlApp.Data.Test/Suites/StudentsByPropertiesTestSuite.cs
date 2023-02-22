@@ -15,7 +15,7 @@ namespace SampleGraphqlApp.Data.Test.Suites
             //No fields populated
             yield return new object[] {
                 $@"[]",
-				new ProspectiveStudent() {
+				new ExistingStudent() {
                     email = "",
 					firstName = "",
 					lastName = "",
@@ -56,7 +56,7 @@ namespace SampleGraphqlApp.Data.Test.Suites
 						}}
 					}}
 				]",
-                new ProspectiveStudent() {
+                new ExistingStudent() {
                     email = "kiran.panigrahi@tutorialpoint.org",
                     firstName = "",
                     lastName = "",
@@ -103,7 +103,7 @@ namespace SampleGraphqlApp.Data.Test.Suites
 						}}
 					}}
 				]",
-                new ProspectiveStudent() {
+                new ExistingStudent() {
                     email = "",
                     firstName = "Mohtashim",
                     lastName = "",
@@ -144,7 +144,7 @@ namespace SampleGraphqlApp.Data.Test.Suites
 						}}
 					}}
 				]",
-                new ProspectiveStudent() {
+                new ExistingStudent() {
                     email = "",
                     firstName = "",
                     lastName = "Sudhakaran",
@@ -214,7 +214,7 @@ namespace SampleGraphqlApp.Data.Test.Suites
 						}}
 					}}
 				]",
-                new ProspectiveStudent() {
+                new ExistingStudent() {
                     email = "",
                     firstName = "",
                     lastName = "",
@@ -290,7 +290,7 @@ namespace SampleGraphqlApp.Data.Test.Suites
 						}}
 					}}
 				]",
-                new ProspectiveStudent() {
+                new ExistingStudent() {
                     email = "kiran.panigrahi@tutorialpoint.org",
                     firstName = "",
                     lastName = "",

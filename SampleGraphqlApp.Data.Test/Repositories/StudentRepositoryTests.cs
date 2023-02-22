@@ -69,5 +69,14 @@ namespace SampleGraphqlApp.Data.Test.Repositories
 
             Assert.Equal(JsonConvert.SerializeObject(JsonConvert.DeserializeObject(expectedResult), Formatting.None), JsonConvert.SerializeObject(student));
         }
+
+        [Theory]
+        [ClassData(typeof(StudentsUpdateMultipleTestSuite))]
+        public async Task UpdateMultipleTest(string expectedResult, IEnumerable<IdentifiableExistingStudent> existingStudents)
+        {
+            IEnumerable<Student>? students = await _studentRepository.UpdateMultiple(existingStudents);
+
+            Assert.Equal(JsonConvert.SerializeObject(JsonConvert.DeserializeObject(expectedResult), Formatting.None), JsonConvert.SerializeObject(students));
+        }
     }
 }

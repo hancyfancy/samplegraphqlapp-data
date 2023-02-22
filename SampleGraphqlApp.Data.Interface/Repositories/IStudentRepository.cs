@@ -16,5 +16,7 @@ namespace SampleGraphqlApp.Data.Interface.Repositories
         Task<IEnumerable<Student>?> AddMultiple(IEnumerable<ProspectiveStudent> prospectiveStudents);
 
         Task<Student?> Update(string id, ExistingStudent existingStudent);
+
+        Task<IEnumerable<Student>?> UpdateMultiple(IEnumerable<IdentifiableExistingStudent> existingStudents);
     }
 }

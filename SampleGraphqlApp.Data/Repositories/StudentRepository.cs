@@ -48,32 +48,40 @@ namespace SampleGraphqlApp.Data.Repositories
 
         public async Task<Student?> ById(string id)
         {
-            using (var client = new HttpClient())
+            using (var client = new GraphQLHttpClient("http://localhost:9000/graphql", new NewtonsoftJsonSerializer()))
             {
-                client.BaseAddress = new Uri("http://localhost:9000");
-                string query = $@"{{
-                                  student(id: ""{id}"") {{
+                var request = new GraphQLRequest
+                {
+                    Query = @"
+                            query Student($id: ID!) {
+                                student(id: $id) {
+                                    id
                                     firstName
                                     lastName
                                     email
-                                    college {{
-                                      id
-                                      name
-                                      location
-                                      rating
-                                      books {{
+                                    college {
+                                        id
+                                        name
+                                        location
+                                        rating
+                                        books {
                                         id
                                         name
                                         author
-                                      }}
-                                    }}
-                                  }}
-                                }}";
-                HttpContent content = new StringContent(query);
-                var result = await client.PostAsync("/graphql", content);
-                string resultContent = await result.Content.ReadAsStringAsync();
-                dynamic? resultContentObj = JsonConvert.DeserializeObject<dynamic>(resultContent);
-                return resultContentObj?.data.studentsBy;
+                                        }
+                                    }
+                                }
+                            }",
+                    OperationName = "Student",
+                    Variables = new
+                    {
+                        id = id
+                    }
+                };
+
+                dynamic response = await client.SendQueryAsync<ExpandoObject>(request);
+
+                return JsonConvert.DeserializeObject<Student>(JsonConvert.SerializeObject(response.Data.student));
             }
         }
 

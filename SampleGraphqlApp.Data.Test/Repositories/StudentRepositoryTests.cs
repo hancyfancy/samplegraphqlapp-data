@@ -2,8 +2,10 @@
 using SampleGraphqlApp.Data.Interface.Models;
 using SampleGraphqlApp.Data.Interface.Repositories;
 using SampleGraphqlApp.Data.Repositories;
+using SampleGraphqlApp.Data.Test.Suites;
+using System.Text.RegularExpressions;
 
-namespace SampleGraphqlApp.Data.Test.Repository
+namespace SampleGraphqlApp.Data.Test.Repositories
 {
     public class StudentRepositoryTests
     {
@@ -22,6 +24,15 @@ namespace SampleGraphqlApp.Data.Test.Repository
             Assert.NotNull(students);
 
             Assert.NotEqual("[]", JsonConvert.SerializeObject(students));
+        }
+
+        [Theory]
+        [ClassData(typeof(StudentByIdTestSuite))]
+        public async Task ByIdTest(string expectedResult, string id)
+        {
+            Student? student = await _studentRepository.ById(id);
+
+            Assert.Equal(JsonConvert.SerializeObject(JsonConvert.DeserializeObject(expectedResult), Formatting.None), JsonConvert.SerializeObject(student));
         }
     }
 }

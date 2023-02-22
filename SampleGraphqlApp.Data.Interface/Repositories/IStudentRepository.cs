@@ -12,5 +12,7 @@ namespace SampleGraphqlApp.Data.Interface.Repositories
         Task<IEnumerable<Student>?> ByProperties(ProspectiveStudent prospectiveStudent);
 
         Task<Student?> Add(ProspectiveStudent prospectiveStudent);
+
+        Task<IEnumerable<Student>?> AddMultiple(IEnumerable<ProspectiveStudent> prospectiveStudents);
     }
 }

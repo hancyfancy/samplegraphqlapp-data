@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SampleGraphqlApp.Data.Interface.Models.Transient;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,12 @@ namespace SampleGraphqlApp.Data.Test.Suites
             //No fields populated
             yield return new object[] {
                 $@"[]",
-                "",
-                "",
-                "",
-                ""
+				new ProspectiveStudent() {
+                    email = "",
+					firstName = "",
+					lastName = "",
+					collegeId = ""
+                }
             };
 
             //Email populated
@@ -53,10 +56,12 @@ namespace SampleGraphqlApp.Data.Test.Suites
 						}}
 					}}
 				]",
-                "kiran.panigrahi@tutorialpoint.org",
-                "",
-                "",
-                ""
+                new ProspectiveStudent() {
+                    email = "kiran.panigrahi@tutorialpoint.org",
+                    firstName = "",
+                    lastName = "",
+                    collegeId = ""
+                }
             };
 
             //FirstName populated
@@ -98,10 +103,12 @@ namespace SampleGraphqlApp.Data.Test.Suites
 						}}
 					}}
 				]",
-                "",
-                "Mohtashim",
-                "",
-                ""
+                new ProspectiveStudent() {
+                    email = "",
+                    firstName = "Mohtashim",
+                    lastName = "",
+                    collegeId = ""
+                }
             };
 
             //LastName populated
@@ -137,10 +144,12 @@ namespace SampleGraphqlApp.Data.Test.Suites
 						}}
 					}}
 				]",
-                "",
-                "",
-                "Sudhakaran",
-                ""
+                new ProspectiveStudent() {
+                    email = "",
+                    firstName = "",
+                    lastName = "Sudhakaran",
+                    collegeId = ""
+                }
             };
 
             //CollegeId populated
@@ -205,10 +214,12 @@ namespace SampleGraphqlApp.Data.Test.Suites
 						}}
 					}}
 				]",
-                "",
-                "",
-                "",
-                "col-101"
+                new ProspectiveStudent() {
+                    email = "",
+                    firstName = "",
+                    lastName = "",
+                    collegeId = "col-101"
+                }
             };
 
             //Fields for different records populated
@@ -279,10 +290,12 @@ namespace SampleGraphqlApp.Data.Test.Suites
 						}}
 					}}
 				]",
-                "kiran.panigrahi@tutorialpoint.org",
-                "",
-                "",
-                "col-102"
+                new ProspectiveStudent() {
+                    email = "kiran.panigrahi@tutorialpoint.org",
+                    firstName = "",
+                    lastName = "",
+                    collegeId = "col-102"
+                }
             };
         }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SampleGraphqlApp.Data.Interface.Models
+namespace SampleGraphqlApp.Data.Interface.Models.Complete
 {
     public class Book
     {

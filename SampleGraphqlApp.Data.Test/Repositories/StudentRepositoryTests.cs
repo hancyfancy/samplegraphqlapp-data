@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
-using SampleGraphqlApp.Data.Interface.Models;
+using SampleGraphqlApp.Data.Interface.Models.Complete;
+using SampleGraphqlApp.Data.Interface.Models.Transient;
 using SampleGraphqlApp.Data.Interface.Repositories;
-using SampleGraphqlApp.Data.Repositories;
 using SampleGraphqlApp.Data.Test.Suites;
-using System.Text.RegularExpressions;
 
 namespace SampleGraphqlApp.Data.Test.Repositories
 {
@@ -37,18 +36,18 @@ namespace SampleGraphqlApp.Data.Test.Repositories
 
         [Theory]
         [ClassData(typeof(StudentsByPropertiesTestSuite))]
-        public async Task ByPropertiesTest(string expectedResult, string email, string firstName, string lastName, string collegeId)
+        public async Task ByPropertiesTest(string expectedResult, ProspectiveStudent prospectiveStudent)
         {
-            IEnumerable<Student>? students = await _studentRepository.ByProperties(email, firstName, lastName, collegeId);
+            IEnumerable<Student>? students = await _studentRepository.ByProperties(prospectiveStudent);
 
             Assert.Equal(JsonConvert.SerializeObject(JsonConvert.DeserializeObject(expectedResult), Formatting.None), JsonConvert.SerializeObject(students));
         }
 
         [Theory]
         [ClassData(typeof(StudentAddTestSuite))]
-        public async Task AddTest(string expectedResult, string email, string firstName, string lastName, string collegeId)
+        public async Task AddTest(string expectedResult, ProspectiveStudent prospectiveStudent)
         {
-            Student? student = await _studentRepository.Add(email, firstName, lastName, collegeId);
+            Student? student = await _studentRepository.Add(prospectiveStudent);
 
             Assert.Equal(JsonConvert.SerializeObject(JsonConvert.DeserializeObject(expectedResult), Formatting.None), JsonConvert.SerializeObject(student));
         }

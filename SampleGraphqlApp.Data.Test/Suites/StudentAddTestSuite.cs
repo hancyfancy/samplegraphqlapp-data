@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SampleGraphqlApp.Data.Interface.Models.Transient;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,19 +15,23 @@ namespace SampleGraphqlApp.Data.Test.Suites
             //No fields populated
             yield return new object[] {
                 $@"null",
-                "",
-                "",
-                "",
-                ""
+                new ProspectiveStudent() {
+                    email = "",
+                    firstName = "",
+                    lastName = "",
+                    collegeId = ""
+                }
             };
 
             //All fields but one populated
             yield return new object[] {
                 $@"null",
-                "tom.bom@gmail.com",
-                "Tom",
-                "Bom",
-                ""
+                new ProspectiveStudent() {
+                    email = "tom.bom@gmail.com",
+                    firstName = "Tom",
+                    lastName = "Bom",
+                    collegeId = ""
+                }
             };
 
             //All fields populated, new record
@@ -60,10 +65,12 @@ namespace SampleGraphqlApp.Data.Test.Suites
                         ""students"":null
 	                }}
                 }}",
-                "tom.bom@gmail.com",
-                "Tom",
-                "Bom",
-                "col-101"
+                new ProspectiveStudent() {
+                    email = "tom.bom@gmail.com",
+                    firstName = "Tom",
+                    lastName = "Bom",
+                    collegeId = "col-101"
+                }
             };
 
             //All fields populated, existing record change foreign key collegeId
@@ -103,10 +110,12 @@ namespace SampleGraphqlApp.Data.Test.Suites
 						""students"":null
 					}}
 				}}",
-                "tom.bom@gmail.com",
-                "Tom",
-                "Bom",
-                "col-102"
+                new ProspectiveStudent() {
+                    email = "tom.bom@gmail.com",
+                    firstName = "Tom",
+                    lastName = "Bom",
+                    collegeId = "col-102"
+                }
             };
         }
 

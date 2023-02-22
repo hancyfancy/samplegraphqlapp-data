@@ -1,11 +1,11 @@
 ﻿using GraphQL.Client.Http;
 using GraphQL;
 using Newtonsoft.Json;
-using SampleGraphqlApp.Data.Interface.Models;
 using SampleGraphqlApp.Data.Interface.Repositories;
 using GraphQL.Client.Serializer.Newtonsoft;
-using Newtonsoft.Json.Linq;
 using System.Dynamic;
+using SampleGraphqlApp.Data.Interface.Models.Complete;
+using SampleGraphqlApp.Data.Interface.Models.Transient;
 
 namespace SampleGraphqlApp.Data.Repositories
 {
@@ -85,12 +85,7 @@ namespace SampleGraphqlApp.Data.Repositories
             }
         }
 
-        public async Task<IEnumerable<Student>?> ByProperties(
-            string email,
-            string firstName,
-            string lastName,
-            string collegeId
-        )
+        public async Task<IEnumerable<Student>?> ByProperties(ProspectiveStudent prospectiveStudent)
         {
             using (var client = new GraphQLHttpClient("http://localhost:9000/graphql", new NewtonsoftJsonSerializer()))
             {
@@ -132,10 +127,10 @@ namespace SampleGraphqlApp.Data.Repositories
                     OperationName = "StudentsBy",
                     Variables = new
                     {
-                        email = email,
-                        firstName = firstName,
-                        lastName = lastName,
-                        collegeId = collegeId
+                        email = prospectiveStudent.email,
+                        firstName = prospectiveStudent.firstName,
+                        lastName = prospectiveStudent.lastName,
+                        collegeId = prospectiveStudent.collegeId
                     }
                 };
 
@@ -145,12 +140,7 @@ namespace SampleGraphqlApp.Data.Repositories
             }
         }
 
-        public async Task<Student?> Add(
-            string email,
-            string firstName,
-            string lastName,
-            string collegeId
-        )
+        public async Task<Student?> Add(ProspectiveStudent prospectiveStudent)
         {
             using (var client = new GraphQLHttpClient("http://localhost:9000/graphql", new NewtonsoftJsonSerializer()))
             {
@@ -191,16 +181,58 @@ namespace SampleGraphqlApp.Data.Repositories
                             OperationName = "AddStudent",
                             Variables = new
                             {
-                                email = email,
-                                firstName = firstName,
-                                lastName = lastName,
-                                collegeId = collegeId
+                                email = prospectiveStudent.email,
+                                firstName = prospectiveStudent.firstName,
+                                lastName = prospectiveStudent.lastName,
+                                collegeId = prospectiveStudent.collegeId
                             }
                         };
 
                 dynamic response = await client.SendMutationAsync<ExpandoObject>(request);
 
                 return JsonConvert.DeserializeObject<Student>(JsonConvert.SerializeObject(response.Data?.addStudent));
+            }
+        }
+
+        public async Task<IEnumerable<Student>?> AddMultiple(IEnumerable<ProspectiveStudent> prospectiveStudents)
+        {
+            using (var client = new GraphQLHttpClient("http://localhost:9000/graphql", new NewtonsoftJsonSerializer()))
+            {
+                var request = new GraphQLRequest
+                {
+                    Query = @"mutation AddStudents(
+                        $students: [StudentMutationParameters!]!
+                    ) 
+                    {
+                        addStudents(students: $students) 
+                        {
+                            id
+                            firstName
+                            lastName
+                            email
+                            college {
+                                id
+                                name
+                                location
+                                rating
+                                books {
+                                id
+                                name
+                                author
+                                }
+                            }
+                        }
+                    }",
+                    OperationName = "AddStudents",
+                    Variables = new
+                    {
+                        students = prospectiveStudents
+                    }
+                };
+
+                dynamic response = await client.SendMutationAsync<ExpandoObject>(request);
+
+                return JsonConvert.DeserializeObject<IEnumerable<Student>>(JsonConvert.SerializeObject(response.Data?.addStudents));
             }
         }
     }

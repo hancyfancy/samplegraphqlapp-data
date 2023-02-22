@@ -1,4 +1,5 @@
-﻿using SampleGraphqlApp.Data.Interface.Models;
+﻿using SampleGraphqlApp.Data.Interface.Models.Complete;
+using SampleGraphqlApp.Data.Interface.Models.Transient;
 
 namespace SampleGraphqlApp.Data.Interface.Repositories
 {
@@ -8,18 +9,8 @@ namespace SampleGraphqlApp.Data.Interface.Repositories
 
         Task<Student?> ById(string id);
 
-        Task<IEnumerable<Student>?> ByProperties(
-            string email,
-            string firstName,
-            string lastName,
-            string collegeId
-        );
+        Task<IEnumerable<Student>?> ByProperties(ProspectiveStudent prospectiveStudent);
 
-        Task<Student?> Add(
-            string email,
-            string firstName,
-            string lastName,
-            string collegeId
-        );
+        Task<Student?> Add(ProspectiveStudent prospectiveStudent);
     }
 }

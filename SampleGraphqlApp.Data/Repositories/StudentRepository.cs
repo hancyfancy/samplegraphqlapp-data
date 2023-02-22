@@ -92,52 +92,56 @@ namespace SampleGraphqlApp.Data.Repositories
             string collegeId
         )
         {
-            using (var client = new HttpClient())
+            using (var client = new GraphQLHttpClient("http://localhost:9000/graphql", new NewtonsoftJsonSerializer()))
             {
-                client.BaseAddress = new Uri("http://localhost:9000");
-
-                string queryEmail = string.IsNullOrWhiteSpace(email)
-                                    ? ""
-                                    : $@"email: {email}";
-                string queryFirstName = string.IsNullOrWhiteSpace(firstName)
-                                    ? ""
-                                    : $@"firstName: {firstName}";
-                string queryLastName = string.IsNullOrWhiteSpace(lastName)
-                                    ? ""
-                                    : $@"lastName: {lastName}";
-                string queryCollegeId = string.IsNullOrWhiteSpace(collegeId)
-                                    ? ""
-                                    : $@"collegeId: {collegeId}";
-
-                string query = $@"{{
-                                  studentsBy(search: {{
-                                      {queryEmail}
-                                      {queryFirstName}
-                                      {queryLastName}
-                                      {queryCollegeId}
-                                    }})
-                                    {{
+                var request = new GraphQLRequest
+                {
+                    Query = @"
+                            query StudentsBy(
+                                $email: String!
+                                $firstName: String!
+                                $lastName: String!
+                                $collegeId: ID!
+                            ) 
+                            {
+                                studentsBy(search: 
+                                {
+                                    email: $email
+                                    firstName: $firstName
+                                    lastName: $lastName
+                                    collegeId: $collegeId
+                                }) 
+                                {
+                                    id
+                                    firstName
+                                    lastName
+                                    email
+                                    college {
                                         id
-                                        firstName
-                                        lastName
-                                        email
-                                        college {{
-                                          id
-                                          name
-                                          location
-                                          rating
-                                          books {{
-                                            id
-                                            name
-                                            author
-                                          }}
-                                        }}
-                                      }}
-                                    }}";
-                HttpContent content = new StringContent(query);
-                var result = await client.PostAsync("/graphql", content);
-                string resultContent = await result.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<IEnumerable<Student>>(resultContent);
+                                        name
+                                        location
+                                        rating
+                                        books {
+                                        id
+                                        name
+                                        author
+                                        }
+                                    }
+                                }
+                            }",
+                    OperationName = "StudentsBy",
+                    Variables = new
+                    {
+                        email = email,
+                        firstName = firstName,
+                        lastName = lastName,
+                        collegeId = collegeId
+                    }
+                };
+
+                dynamic response = await client.SendQueryAsync<ExpandoObject>(request);
+
+                return JsonConvert.DeserializeObject<IEnumerable<Student>>(JsonConvert.SerializeObject(response.Data?.studentsBy));
             }
         }
     }

@@ -11,8 +11,9 @@ namespace SampleGraphqlApp.Data.Test.Suites
     {
         public IEnumerator<object[]> GetEnumerator()
         {
-            yield return new object[] { 
-                $@"{{
+			//Existent id
+			yield return new object[] {
+				$@"{{
 					""id"": ""S1002"",
 					""firstName"": ""Kannan"",
 					""lastName"": ""Sudhakaran"",
@@ -41,7 +42,13 @@ namespace SampleGraphqlApp.Data.Test.Suites
 						""students"":null
 					}}
 				}}",
-                "S1002"
+				"S1002"
+			};
+
+			//Non-existent id
+			yield return new object[] {
+                $@"null",
+                ""
             };
         }
 

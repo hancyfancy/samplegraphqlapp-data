@@ -42,7 +42,7 @@ namespace SampleGraphqlApp.Data.Repositories
 
                 dynamic response = await client.SendQueryAsync<ExpandoObject>(request);
 
-                return JsonConvert.DeserializeObject<IEnumerable<Student>>(JsonConvert.SerializeObject(response.Data.students));
+                return JsonConvert.DeserializeObject<IEnumerable<Student>>(JsonConvert.SerializeObject(response.Data?.students));
             }
         }
 
@@ -81,7 +81,7 @@ namespace SampleGraphqlApp.Data.Repositories
 
                 dynamic response = await client.SendQueryAsync<ExpandoObject>(request);
 
-                return JsonConvert.DeserializeObject<Student>(JsonConvert.SerializeObject(response.Data.student));
+                return JsonConvert.DeserializeObject<Student>(JsonConvert.SerializeObject(response.Data?.student));
             }
         }
 

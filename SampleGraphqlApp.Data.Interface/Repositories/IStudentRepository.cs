@@ -14,5 +14,12 @@ namespace SampleGraphqlApp.Data.Interface.Repositories
             string lastName,
             string collegeId
         );
+
+        Task<Student?> Add(
+            string email,
+            string firstName,
+            string lastName,
+            string collegeId
+        );
     }
 }

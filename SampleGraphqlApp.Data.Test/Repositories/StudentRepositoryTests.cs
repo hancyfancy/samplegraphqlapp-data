@@ -43,5 +43,14 @@ namespace SampleGraphqlApp.Data.Test.Repositories
 
             Assert.Equal(JsonConvert.SerializeObject(JsonConvert.DeserializeObject(expectedResult), Formatting.None), JsonConvert.SerializeObject(students));
         }
+
+        [Theory]
+        [ClassData(typeof(StudentAddTestSuite))]
+        public async Task AddTest(string expectedResult, string email, string firstName, string lastName, string collegeId)
+        {
+            Student? student = await _studentRepository.Add(email, firstName, lastName, collegeId);
+
+            Assert.Equal(JsonConvert.SerializeObject(JsonConvert.DeserializeObject(expectedResult), Formatting.None), JsonConvert.SerializeObject(student));
+        }
     }
 }

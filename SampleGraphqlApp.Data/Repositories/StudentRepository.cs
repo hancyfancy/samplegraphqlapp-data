@@ -144,5 +144,64 @@ namespace SampleGraphqlApp.Data.Repositories
                 return JsonConvert.DeserializeObject<IEnumerable<Student>>(JsonConvert.SerializeObject(response.Data?.studentsBy));
             }
         }
+
+        public async Task<Student?> Add(
+            string email,
+            string firstName,
+            string lastName,
+            string collegeId
+        )
+        {
+            using (var client = new GraphQLHttpClient("http://localhost:9000/graphql", new NewtonsoftJsonSerializer()))
+            {
+                var request = new GraphQLRequest
+                {
+                    Query = @"mutation AddStudent(
+                                $email: String!
+                                $firstName: String!
+                                $lastName: String!
+                                $collegeId: ID!
+                            ) 
+                            {
+                                addStudent(student: 
+                                {
+                                    email: $email
+                                    firstName: $firstName
+                                    lastName: $lastName
+                                    collegeId: $collegeId
+                                }) 
+                                {
+                                    id
+                                    firstName
+                                    lastName
+                                    email
+                                    college {
+                                        id
+                                        name
+                                        location
+                                        rating
+                                        books {
+                                        id
+                                        name
+                                        author
+                                        }
+                                    }
+                                }
+                            }",
+                            OperationName = "AddStudent",
+                            Variables = new
+                            {
+                                email = email,
+                                firstName = firstName,
+                                lastName = lastName,
+                                collegeId = collegeId
+                            }
+                        };
+
+                dynamic response = await client.SendMutationAsync<ExpandoObject>(request);
+
+                return JsonConvert.DeserializeObject<Student>(JsonConvert.SerializeObject(response.Data?.addStudent));
+            }
+        }
     }
 }
